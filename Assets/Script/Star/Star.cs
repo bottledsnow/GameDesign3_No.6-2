@@ -17,10 +17,13 @@ public class Star : MonoBehaviour
     private CloakSystem Mannager;
     [SerializeField]
     private CloakSystem.Color thisColor;
+    [SerializeField]
+
     private void Start()
     {
         animator = GetComponent<Animator>();
     }
+   
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")

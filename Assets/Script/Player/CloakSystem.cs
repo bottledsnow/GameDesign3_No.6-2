@@ -27,12 +27,25 @@ public class CloakSystem : MonoBehaviour
     }
     [Header("斗篷運行")]
     private int SpaceNumber;
+
     [Header("1號 斗篷欄位")]
     public bool Space1;
     public Color Space1Color;
     [Header("2號 斗篷欄位")]
     public bool Space2;
     public Color Space2Color;
+    [Header("星源丟擲")]
+    [SerializeField]
+    private GameObject[] Star;
+    [SerializeField]
+    private float Speed;
+    [SerializeField]
+    private float SpeedUp;
+    [SerializeField]
+    private float MaxThrowCD;
+    [SerializeField]
+    private float OnetypeSensitivity;
+    private float throwCD;
 
     [Header("皮膚顏色")]
     [SerializeField]
@@ -53,29 +66,93 @@ public class CloakSystem : MonoBehaviour
 
     private void SwitchSystem()
     {
-        if(Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-            if (SpaceNumber == 0)
+            throwCD = 0;
+        }
+
+        if (Input.GetKey(KeyCode.Q))
+        {
+            Debug.Log("Q按著");
+            throwCD += Time.deltaTime;
+        }
+        else
+        if (Input.GetKeyUp(KeyCode.Q)) 
+        {
+            Debug.Log("Q放開");
+            if (throwCD < OnetypeSensitivity) 
             {
-                Debug.Log("切換為1號斗篷欄位");
-                SpaceNumber = 1;
+                if (SpaceNumber == 0)
+                {
+                    Debug.Log("切換為1號斗篷欄位");
+                    SpaceNumber = 1;
+                    SwitchColor(1);
+                }
+                else
+                if (SpaceNumber == 1) 
+                {
+                    Debug.Log("切換為2號斗篷欄位");
+                    SpaceNumber = 2;
+                    SwitchColor(2);
+                }
+                else
+                if (SpaceNumber == 2)
+                {
+                    Debug.Log("切換為1號斗篷欄位");
+                    SpaceNumber = 1;
+                    SwitchColor(1);
+                }
+                else
+                {
+                    Debug.Log("程式出錯");
+                }
+            }
+            if (throwCD > MaxThrowCD)
+            {
+                Debug.Log("丟擲星原");
+                if(SpaceNumber==1)
+                {
+                    ThorwStar(1);
+                }
+                else
+                if(SpaceNumber==2)
+                {
+                    ThorwStar(2);
+                }
+            }
+        }
+    }
+    private void ThorwStar(int SpaceNumber)
+    {
+        if (SpaceNumber == 1) 
+        {
+            if(Space1)
+            {
+                //生成一顆星源，讓它往前飛出去，玩家恢復成白色斗篷。
+                Vector3 ShootingPositio0 = this.transform.position + this.transform.forward * 2 + this.transform.up * 2;
+                GameObject TossedStar = Instantiate(Star[(int)Space1Color], ShootingPositio0, this.transform.rotation);
+                Rigidbody StarRigid = TossedStar.GetComponent<Rigidbody>();
+                Vector3 Direction = this.transform.forward;
+                Vector3 DirectoinUp = this.transform.up;
+                StarRigid.velocity = Direction * Speed + DirectoinUp *SpeedUp;
+                Debug.Log("玩家恢復為白色斗篷");
+                Space1Color = Color.沒有星源;
                 SwitchColor(1);
-            }else
-            if (SpaceNumber==1)
-            {
-                Debug.Log("切換為2號斗篷欄位");
-                SpaceNumber = 2;
-                SwitchColor(2);
+                Space1 = false;
             }
             else
-            if(SpaceNumber==2)
             {
-                Debug.Log("切換為1號斗篷欄位");
-                SpaceNumber = 1;
-                SwitchColor(1);
+                Debug.Log("現在的欄位為空");
+            }
+        }
+        if (SpaceNumber == 2)
+        {
+            if (Space2)
+            {
+               
             }else
             {
-                Debug.Log("程式出錯");
+                Debug.Log("現在的欄位為空");
             }
         }
     }
@@ -166,7 +243,7 @@ public class CloakSystem : MonoBehaviour
                 SwitchParticle(0);
             }
         }
-        else Debug.Log("程式錯誤");
+        else if(SpaceNumber > 2) Debug.Log("程式錯誤");
     }
     private void SwitchParticle(int index)
     {
@@ -199,7 +276,6 @@ public class CloakSystem : MonoBehaviour
             Particle[3].particleSystem.gameObject.SetActive(true);
         }
     }
-
     private void UIupdate()
     {
         if (Space1 == true)
