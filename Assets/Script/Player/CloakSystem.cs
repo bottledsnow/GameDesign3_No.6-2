@@ -82,102 +82,78 @@ public class CloakSystem : MonoBehaviour
             Debug.Log("Q放開");
             if (throwCD < OnetypeSensitivity) 
             {
-                switch(SpaceNumber)
+                if (SpaceNumber == 0)
                 {
-                    case 0:
-                        Debug.Log("切換為1號斗篷欄位");
-                        SpaceNumber = 1;
-                        SwitchColor(1);
-                        break;
-                    case 1:
-                        Debug.Log("切換為2號斗篷欄位");
-                        SpaceNumber = 2;
-                        SwitchColor(2);
-                        break;
-                    case 2:
-                        Debug.Log("切換為1號斗篷欄位");
-                        SpaceNumber = 1;
-                        SwitchColor(1);
-                        break;
-                    default:
-                        Debug.Log("程式出錯");
-                        break;
+                    Debug.Log("切換為1號斗篷欄位");
+                    SpaceNumber = 1;
+                    SwitchColor(1);
+                }
+                else
+                if (SpaceNumber == 1) 
+                {
+                    Debug.Log("切換為2號斗篷欄位");
+                    SpaceNumber = 2;
+                    SwitchColor(2);
+                }
+                else
+                if (SpaceNumber == 2)
+                {
+                    Debug.Log("切換為1號斗篷欄位");
+                    SpaceNumber = 1;
+                    SwitchColor(1);
+                }
+                else
+                {
+                    Debug.Log("程式出錯");
                 }
             }
-
             if (throwCD > MaxThrowCD)
             {
                 Debug.Log("丟擲星原");
-                switch(SpaceNumber)
+                if(SpaceNumber==1)
                 {
-                    case 1:
-                        ThorwStar(1);
-                        break;
-                    case 2:
-                        ThorwStar(2);
-                        break;
-                    default:
-                        Debug.Log("程式出錯");
-                        break;
+                    ThorwStar(1);
+                }
+                else
+                if(SpaceNumber==2)
+                {
+                    ThorwStar(2);
                 }
             }
         }
     }
-    private void ThorwStar(int spaceNumber)
+    private void ThorwStar(int SpaceNumber)
     {
-        switch(spaceNumber)
+        if (SpaceNumber == 1) 
         {
-            case 1:
-                if (Space1)
-                {
-                    //生成一顆星源，讓它往前飛出去，玩家恢復成白色斗篷。
-                    Vector3 ShootingPositio0 = this.transform.position + this.transform.forward * 2 + this.transform.up * 2;
-                    GameObject TossedStar = Instantiate(Star[(int)Space1Color], ShootingPositio0, this.transform.rotation);
-                    Rigidbody StarRigid = TossedStar.GetComponent<Rigidbody>();
-                    Vector3 Direction = this.transform.forward;
-                    Vector3 DirectoinUp = this.transform.up;
-                    StarRigid.velocity = Direction * Speed + DirectoinUp * SpeedUp;
-                    Debug.Log("玩家恢復為白色斗篷");
-                    Space1Color = Color.沒有星源;
-                    SwitchColor(1);
-                    Space1 = false;
-
-                    //位置1 清空 ，位置2 和 位置1 交換。
-                    bool TemporarySpace;
-                    Color TemporaryStarColor;
-                    TemporarySpace = Space1;
-                    TemporaryStarColor = Space1Color;
-                    Space1 = Space2;
-                    Space1Color = Space2Color;
-                    Space2 = TemporarySpace;
-                    Space2Color = TemporaryStarColor;
-                    SpaceNumber = 2;
-                }
-                else
-                {
-                    Debug.Log("現在的欄位為空");
-                }
-                break;
-            case 2:
-                if (Space2)
-                {
-                    //生成一顆星源，讓它往前飛出去，玩家恢復成白色斗篷。
-                    Vector3 ShootingPositio0 = this.transform.position + this.transform.forward * 2 + this.transform.up * 2;
-                    GameObject TossedStar = Instantiate(Star[(int)Space2Color], ShootingPositio0, this.transform.rotation);
-                    Rigidbody StarRigid = TossedStar.GetComponent<Rigidbody>();
-                    Vector3 Direction = this.transform.forward;
-                    Vector3 DirectoinUp = this.transform.up;
-                    StarRigid.velocity = Direction * Speed + DirectoinUp * SpeedUp;
-                    Debug.Log("玩家恢復為白色斗篷");
-                    Space2Color = Color.沒有星源;
-                    SwitchColor(2);
-                    Space2 = false;
-                }
-                else
-                {
-                    Debug.Log("現在的欄位為空");
-                }
-                break;
+            if(Space1)
+            {
+                //生成一顆星源，讓它往前飛出去，玩家恢復成白色斗篷。
+                Vector3 ShootingPositio0 = this.transform.position + this.transform.forward * 2 + this.transform.up * 2;
+                GameObject TossedStar = Instantiate(Star[(int)Space1Color], ShootingPositio0, this.transform.rotation);
+                Rigidbody StarRigid = TossedStar.GetComponent<Rigidbody>();
+                Vector3 Direction = this.transform.forward;
+                Vector3 DirectoinUp = this.transform.up;
+                StarRigid.velocity = Direction * Speed + DirectoinUp *SpeedUp;
+                Debug.Log("玩家恢復為白色斗篷");
+                Space1Color = Color.沒有星源;
+                SwitchColor(1);
+                Space1 = false;
+            }
+            else
+            {
+                Debug.Log("現在的欄位為空");
+            }
+        }
+        if (SpaceNumber == 2)
+        {
+            if (Space2)
+            {
+               
+            }else
+            {
+                Debug.Log("現在的欄位為空");
+            }
         }
     }
     private void SwitchColor(int SpaceNumber)

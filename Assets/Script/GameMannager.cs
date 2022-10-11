@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class GameMannager : MonoBehaviour
 {
-    public CloakSystem cloakSystem;
+    [SerializeField]
+    public static CloakSystem cloakSystem;
 }

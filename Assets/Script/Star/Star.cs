@@ -13,8 +13,8 @@ public class Star : MonoBehaviour
     }
 
     private Animator animator;
-    private GameMannager gameMannager;
-    private CloakSystem cloakSystem;
+    [SerializeField]
+    private CloakSystem Mannager;
     [SerializeField]
     private CloakSystem.Color thisColor;
     [SerializeField]
@@ -22,8 +22,6 @@ public class Star : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
-        gameMannager = GameObject.Find("Mannager").GetComponent<GameMannager>();
-        cloakSystem = gameMannager.cloakSystem;
     }
    
     private void OnTriggerEnter(Collider other)
@@ -33,25 +31,25 @@ public class Star : MonoBehaviour
             animator.Play("GetStar");
             Debug.Log("玩家碰到星源");
 
-            if(cloakSystem.Space1==false)
+            if(Mannager.Space1==false)
             {
                 Debug.Log("1號空間取得此星源");
-                cloakSystem.Space1Color = thisColor;
-                cloakSystem.Space1 = true;
+                Mannager.Space1Color = thisColor;
+                Mannager.Space1 = true;
             }else
-            if(cloakSystem.Space1Color == thisColor)
+            if(Mannager.Space1Color == thisColor)
             {
                 Debug.Log("補充1號空間的星源能量");
             }
             else
-            if(cloakSystem.Space2==false)
+            if(Mannager.Space2==false)
             {
                 Debug.Log("2號空間取得此星源");
-                cloakSystem.Space2Color = thisColor;
-                cloakSystem.Space2 = true;
+                Mannager.Space2Color = thisColor;
+                Mannager.Space2 = true;
             }
             else
-            if(cloakSystem.Space2Color==thisColor)
+            if(Mannager.Space2Color==thisColor)
             {
                 Debug.Log("補充2號空間的星源能量");
             }else
