@@ -27,6 +27,9 @@ public class CloakSystem : MonoBehaviour
     }
     [Header("ゆ罯笲︽")]
     private int SpaceNumber;
+    [SerializeField]
+    private GameObject[] PlayerChild;
+
 
     [Header("1腹 ゆ罯逆")]
     public bool Space1;
@@ -58,6 +61,15 @@ public class CloakSystem : MonoBehaviour
     [SerializeField]
     private PlayerParticle[] Particle;
 
+    private void Start()
+    {
+        int childNumber = transform.childCount;
+        PlayerChild = new GameObject[childNumber];
+        for (int i = 0; i < childNumber;i++)
+        {
+            PlayerChild[i] = this.transform.GetChild(i).gameObject;
+        }
+    }
     private void Update()
     {
         UIupdate();
@@ -149,8 +161,19 @@ public class CloakSystem : MonoBehaviour
         {
             if (Space2)
             {
-               
-            }else
+                //ネΘ聋琍方琵ウ┕玡產確Θフ︹ゆ罯
+                Vector3 ShootingPositio0 = this.transform.position + this.transform.forward * 2 + this.transform.up * 2;
+                GameObject TossedStar = Instantiate(Star[(int)Space2Color], ShootingPositio0, this.transform.rotation);
+                Rigidbody StarRigid = TossedStar.GetComponent<Rigidbody>();
+                Vector3 Direction = this.transform.forward;
+                Vector3 DirectoinUp = this.transform.up;
+                StarRigid.velocity = Direction * Speed + DirectoinUp * SpeedUp;
+                Debug.Log("產確フ︹ゆ罯");
+                Space2Color = Color.⊿Τ琍方;
+                SwitchColor(2);
+                Space2 = false;
+            }
+            else
             {
                 Debug.Log("瞷逆");
             }
@@ -162,85 +185,123 @@ public class CloakSystem : MonoBehaviour
         {
             if (Space1)
             {
-                if ((int)Space1Color == 0)
+                Debug.Log("ち传Θ腹肅︹");
+                PlayerJoints.sharedMaterial = Material[(int)Space1Color].JointsColor;
+                PlayerSurface.sharedMaterial = Material[(int)Space1Color].SurfaceColor;
+                SwitchParticle((int)Space1Color);
+                SwitchLayers((int)Space1Color);
+                #region 衡Α
+                /*
+                switch ((int)(Space1Color))
                 {
-                    Debug.Log("ち传Θη︹");
-                    PlayerJoints.sharedMaterial = Material[0].JointsColor;
-                    PlayerSurface.sharedMaterial = Material[0].SurfaceColor;
-                    SwitchParticle(0);
-                }else
-                if ((int)Space1Color == 1)
-                {
-                    Debug.Log("ち传Θ︹");
-                    PlayerJoints.sharedMaterial = Material[1].JointsColor;
-                    PlayerSurface.sharedMaterial = Material[1].SurfaceColor;
-                    SwitchParticle(1);
+                    case 0:
+                        Debug.Log("ち传Θη︹");
+                        PlayerJoints.sharedMaterial = Material[0].JointsColor;
+                        PlayerSurface.sharedMaterial = Material[0].SurfaceColor;
+                        SwitchParticle(0);
+                        SwitchLayers(0);
+                        break;
+                    case 1:
+                        Debug.Log("ち传Θ︹");
+                        PlayerJoints.sharedMaterial = Material[1].JointsColor;
+                        PlayerSurface.sharedMaterial = Material[1].SurfaceColor;
+                        SwitchParticle(1);
+                        SwitchLayers(1);
+                        break;
+                    case 2:
+                        Debug.Log("ち传Θ屡︹");
+                        PlayerJoints.sharedMaterial = Material[2].JointsColor;
+                        PlayerSurface.sharedMaterial = Material[2].SurfaceColor;
+                        SwitchParticle(2);
+                        SwitchLayers(2);
+                        break;
+                    case 3:
+                        Debug.Log("ち传Θ厚︹");
+                        PlayerJoints.sharedMaterial = Material[3].JointsColor;
+                        PlayerSurface.sharedMaterial = Material[3].SurfaceColor;
+                        SwitchParticle(3);
+                        SwitchLayers(3);
+                        break;
+                    default:
+                        Debug.Log("ち传Θη︹");
+                        PlayerJoints.sharedMaterial = Material[0].JointsColor;
+                        PlayerSurface.sharedMaterial = Material[0].SurfaceColor;
+                        SwitchParticle(0);
+                        SwitchLayers(4);
+                        break;
+
                 }
-                else
-                if ((int)Space1Color == 2)
-                {
-                    Debug.Log("ち传Θ屡︹");
-                    PlayerJoints.sharedMaterial = Material[2].JointsColor;
-                    PlayerSurface.sharedMaterial = Material[2].SurfaceColor;
-                    SwitchParticle(2);
-                }
-                else
-                if ((int)Space1Color == 3)
-                {
-                    Debug.Log("ち传Θ厚︹");
-                    PlayerJoints.sharedMaterial = Material[3].JointsColor;
-                    PlayerSurface.sharedMaterial = Material[3].SurfaceColor;
-                    SwitchParticle(3);
-                }
-            } else
-            {
-                Debug.Log("ち传Θη︹");
-                PlayerJoints.sharedMaterial = Material[0].JointsColor;
-                PlayerSurface.sharedMaterial = Material[0].SurfaceColor;
-                SwitchParticle(0);
-            }
-        }
-        if (SpaceNumber == 2)
-        {
-            if (Space2)
-            {
-                if ((int)Space2Color == 0)
-                {
-                    Debug.Log("ち传Θη︹");
-                    PlayerJoints.sharedMaterial = Material[0].JointsColor;
-                    PlayerSurface.sharedMaterial = Material[0].SurfaceColor;
-                    SwitchParticle(0);
-                }
-                else
-                if ((int)Space2Color == 1)
-                {
-                    Debug.Log("ち传Θ︹");
-                    PlayerJoints.sharedMaterial = Material[1].JointsColor;
-                    PlayerSurface.sharedMaterial = Material[1].SurfaceColor;
-                    SwitchParticle(1);
-                }
-                else
-                if ((int)Space2Color == 2)
-                {
-                    Debug.Log("ち传Θ屡︹");
-                    PlayerJoints.sharedMaterial = Material[2].JointsColor;
-                    PlayerSurface.sharedMaterial = Material[2].SurfaceColor;
-                    SwitchParticle(2);
-                }
-                else
-                if ((int)Space2Color == 3)
-                {
-                    Debug.Log("ち传Θ厚︹");
-                    PlayerJoints.sharedMaterial = Material[3].JointsColor;
-                    PlayerSurface.sharedMaterial = Material[3].SurfaceColor;
-                    SwitchParticle(3);
-                }
+                */
+                #endregion 
             }else
             {
                 Debug.Log("ち传Θη︹");
                 PlayerJoints.sharedMaterial = Material[0].JointsColor;
                 PlayerSurface.sharedMaterial = Material[0].SurfaceColor;
                 SwitchParticle(0);
+                SwitchLayers(0);
+            }
+        }
+        if (SpaceNumber == 2)
+        {
+            if (Space2)
+            {
+                Debug.Log("ち传Θ腹肅︹");
+                PlayerJoints.sharedMaterial = Material[(int)Space2Color].JointsColor;
+                PlayerSurface.sharedMaterial = Material[(int)Space2Color].SurfaceColor;
+                SwitchParticle((int)Space2Color);
+                SwitchLayers((int)Space2Color);
+                #region 衡Α
+                /*
+                switch ((int)(Space1Color))
+                {
+                    case 0:
+                        Debug.Log("ち传Θη︹");
+                        PlayerJoints.sharedMaterial = Material[0].JointsColor;
+                        PlayerSurface.sharedMaterial = Material[0].SurfaceColor;
+                        SwitchParticle(0);
+                        SwitchLayers(0);
+                        break;
+                    case 1:
+                        Debug.Log("ち传Θ︹");
+                        PlayerJoints.sharedMaterial = Material[1].JointsColor;
+                        PlayerSurface.sharedMaterial = Material[1].SurfaceColor;
+                        SwitchParticle(1);
+                        SwitchLayers(1);
+                        break;
+                    case 2:
+                        Debug.Log("ち传Θ屡︹");
+                        PlayerJoints.sharedMaterial = Material[2].JointsColor;
+                        PlayerSurface.sharedMaterial = Material[2].SurfaceColor;
+                        SwitchParticle(2);
+                        SwitchLayers(2);
+                        break;
+                    case 3:
+                        Debug.Log("ち传Θ厚︹");
+                        PlayerJoints.sharedMaterial = Material[3].JointsColor;
+                        PlayerSurface.sharedMaterial = Material[3].SurfaceColor;
+                        SwitchParticle(3);
+                        SwitchLayers(3);
+                        break;
+                    default:
+                        Debug.Log("ち传Θη︹");
+                        PlayerJoints.sharedMaterial = Material[0].JointsColor;
+                        PlayerSurface.sharedMaterial = Material[0].SurfaceColor;
+                        SwitchParticle(0);
+                        SwitchLayers(4);
+                        break;
+
+                }
+                */
+                #endregion 
+            }
+            else
+            {
+                Debug.Log("ち传Θη︹");
+                PlayerJoints.sharedMaterial = Material[0].JointsColor;
+                PlayerSurface.sharedMaterial = Material[0].SurfaceColor;
+                SwitchParticle(0);
+                SwitchLayers(0);
             }
         }
         else if(SpaceNumber > 2) Debug.Log("祘Α岿粇");
@@ -274,6 +335,45 @@ public class CloakSystem : MonoBehaviour
             Particle[1].particleSystem.gameObject.SetActive(false);
             Particle[2].particleSystem.gameObject.SetActive(false);
             Particle[3].particleSystem.gameObject.SetActive(true);
+        }
+    }
+    private void SwitchLayers(int Color)
+    {
+        int childNumber = transform.childCount;
+        switch (Color)
+        {
+            case 0:
+                Debug.Log("ち传フ︹ Layers");
+                this.gameObject.layer = 7;
+                for (int i = 0; i < childNumber; i++)
+                {
+                    PlayerChild[i].gameObject.layer = 7;     
+                }
+                break;
+            case 1:
+                Debug.Log("ち传︹ Layers");
+                this.gameObject.layer = 8;
+                for (int i = 0; i < childNumber; i++)
+                {
+                    PlayerChild[i].gameObject.layer = 8;
+                }
+                break;
+            case 2:
+                Debug.Log("ち传屡︹ Layers");
+                this.gameObject.layer = 9;
+                for (int i = 0; i < childNumber; i++)
+                {
+                    PlayerChild[i].gameObject.layer = 9;
+                }
+                break;
+            case 3:
+                Debug.Log("ち传厚︹ Layers");
+                this.gameObject.layer = 10;
+                for (int i = 0; i < childNumber; i++)
+                {
+                    PlayerChild[i].gameObject.layer = 10;
+                }
+                break;
         }
     }
     private void UIupdate()
