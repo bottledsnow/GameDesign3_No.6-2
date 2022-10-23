@@ -148,9 +148,14 @@ public class CloakSystem : MonoBehaviour
                 Vector3 DirectoinUp = this.transform.up;
                 StarRigid.velocity = Direction * Speed + DirectoinUp *SpeedUp;
                 Debug.Log("玩家恢復為白色斗篷");
-                Space1Color = Color.沒有星源;
+                Color temporaryColor = Space2Color;
+                bool temporarySpace = Space2;
+                Space2Color = Color.沒有星源;
+                Space2 = false;
+                Space1Color = temporaryColor;
                 SwitchColor(1);
-                Space1 = false;
+                Space1 = temporarySpace;
+                
             }
             else
             {

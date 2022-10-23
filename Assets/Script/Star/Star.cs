@@ -23,10 +23,10 @@ public class Star : MonoBehaviour
         animator = GetComponent<Animator>();
         Mannager = GameMannager.gameMannager.cloakSystem;
     }
-   
-    private void OnTriggerEnter(Collider other)
+    
+    private void OnCollisionEnter(Collision other)
     {
-        if (other.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
             animator.Play("GetStar");
             Debug.Log("ª±®a¸I¨ì¬P·½");

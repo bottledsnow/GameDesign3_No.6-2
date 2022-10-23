@@ -6,7 +6,7 @@ public class GameMannager : MonoBehaviour
 {
     public static GameMannager gameMannager;
 
-    private void Start()
+    private void Awake()
     {
         gameMannager = GetComponent<GameMannager>();
     }
