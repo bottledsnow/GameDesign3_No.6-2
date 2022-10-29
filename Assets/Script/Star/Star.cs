@@ -16,7 +16,7 @@ public class Star : MonoBehaviour
     [SerializeField]
     private CloakSystem CloakSystem;
     [SerializeField]
-    private PlayerState StateStstem;
+    private PlayerState StateSystem;
     [SerializeField]
     private CloakSystem.Color thisColor;
 
@@ -24,7 +24,7 @@ public class Star : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         CloakSystem = GameMannager.gameMannager.cloakSystem;
-        StateStstem = GameMannager.gameMannager.playerState;
+        StateSystem = GameMannager.gameMannager.playerState;
     }
     
     private void OnCollisionEnter(Collision other)
@@ -39,6 +39,7 @@ public class Star : MonoBehaviour
                 Debug.Log("1號空間取得此星源");
                 CloakSystem.Space1Color = thisColor;
                 CloakSystem.Space1 = true;
+                StateSystem.DurabilitySystem(1,"Get");
             }
             else
             if (CloakSystem.Space1Color == thisColor)
@@ -51,6 +52,7 @@ public class Star : MonoBehaviour
                 Debug.Log("2號空間取得此星源");
                 CloakSystem.Space2Color = thisColor;
                 CloakSystem.Space2 = true;
+                StateSystem.DurabilitySystem(2,"Get");
             }
             else
             if(CloakSystem.Space2Color==thisColor)

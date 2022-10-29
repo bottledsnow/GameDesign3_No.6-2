@@ -326,7 +326,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8b6cf0466d9ad824ca4d92999fc5ed04, type: 2}
+  - {fileID: 2100000, guid: e327f5c25b7a65a478c9e5ad914e2c35, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9676,11 +9676,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4a649b75e45cd44bb5498bf6fc6537b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpaceNumber: 0
   PlayerChild: []
   Space1: 0
   Space1Color: 0
   Space2: 0
   Space2Color: 0
+  MaxQCD: 2.5
   Star:
   - {fileID: 5532841810691415242, guid: 7bb1d5f936072f44ea2141b78014bd1f, type: 3}
   - {fileID: 4089502397038517285, guid: 76d909b2101c43f4b901e5befaa37c6e, type: 3}
@@ -9688,7 +9690,6 @@ MonoBehaviour:
   - {fileID: 8999272360901989210, guid: d090c28963f17714ebd7a83a9cbf27b2, type: 3}
   Speed: 7
   SpeedUp: 2
-  MaxThrowCD: 2
   OnetypeSensitivity: 0.25
   Particle:
   - ParticleName: Grey
@@ -9753,15 +9754,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7382637431005794e9a96eb7b0a22ded, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHp: 0
+  MaxHp: 100
   Hp: 0
-  Recover: 0
+  Recover: 1
   Activity_1: 0
-  MaxDurability_1: 0
+  MaxDurability_1: 100.1
   Durability_1: 0
+  lose_1: 5
   Activity_2: 0
-  MaxDurability_2: 0
+  MaxDurability_2: 100
   Durability_2: 0
+  lose_2: 5
 --- !u!1 &788955689
 GameObject:
   m_ObjectHideFlags: 3
@@ -10561,7 +10564,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1098420395
 Transform:
   m_ObjectHideFlags: 0
@@ -10596,7 +10599,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8b6cf0466d9ad824ca4d92999fc5ed04, type: 2}
+  - {fileID: 2100000, guid: a9384c0b5db4e6e40a6274b6badd131a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -16824,7 +16827,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8b6cf0466d9ad824ca4d92999fc5ed04, type: 2}
+  - {fileID: 2100000, guid: 9a771aeae543c574aa9736979ee2478e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -21776,7 +21779,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1587245887}
-  m_LocalRotation: {x: -0.062043127, y: 0.0076512215, z: 0.000475636, w: 0.9980441}
+  m_LocalRotation: {x: -0.06204313, y: 0.007651218, z: 0.00047563584, w: 0.9980441}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -22565,7 +22568,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1947882443
 Transform:
   m_ObjectHideFlags: 0
@@ -23479,7 +23482,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 100
+      scalar: 5
       minScalar: 10
       maxCurve:
         serializedVersion: 2
