@@ -50,6 +50,7 @@ public class CloakSystem : MonoBehaviour
     private float OnetypeSensitivity;
     private float throwCD;
 
+    /*
     [Header("皮膚顏色")]
     [SerializeField]
     private Renderer PlayerJoints;
@@ -57,6 +58,7 @@ public class CloakSystem : MonoBehaviour
     private Renderer PlayerSurface;
     [SerializeField]
     private ColorMaterial[] Material;
+    */
     [Header("特效")]
     [SerializeField]
     private PlayerParticle[] Particle;
@@ -191,8 +193,12 @@ public class CloakSystem : MonoBehaviour
             if (Space1)
             {
                 Debug.Log("切換成一號位顏色");
+
+                /*
                 PlayerJoints.sharedMaterial = Material[(int)Space1Color].JointsColor;
                 PlayerSurface.sharedMaterial = Material[(int)Space1Color].SurfaceColor;
+                */
+
                 SwitchParticle((int)Space1Color);
                 SwitchLayers((int)Space1Color);
                 #region 原算式
@@ -241,8 +247,12 @@ public class CloakSystem : MonoBehaviour
             }else
             {
                 Debug.Log("切換成灰色");
+
+                /*
                 PlayerJoints.sharedMaterial = Material[0].JointsColor;
                 PlayerSurface.sharedMaterial = Material[0].SurfaceColor;
+                */
+
                 SwitchParticle(0);
                 SwitchLayers(0);
             }
@@ -252,8 +262,12 @@ public class CloakSystem : MonoBehaviour
             if (Space2)
             {
                 Debug.Log("切換成一號位顏色");
+
+                /*
                 PlayerJoints.sharedMaterial = Material[(int)Space2Color].JointsColor;
                 PlayerSurface.sharedMaterial = Material[(int)Space2Color].SurfaceColor;
+                */
+
                 SwitchParticle((int)Space2Color);
                 SwitchLayers((int)Space2Color);
                 #region 原算式
@@ -303,8 +317,12 @@ public class CloakSystem : MonoBehaviour
             else
             {
                 Debug.Log("切換成灰色");
+
+                /*
                 PlayerJoints.sharedMaterial = Material[0].JointsColor;
                 PlayerSurface.sharedMaterial = Material[0].SurfaceColor;
+                */
+
                 SwitchParticle(0);
                 SwitchLayers(0);
             }
