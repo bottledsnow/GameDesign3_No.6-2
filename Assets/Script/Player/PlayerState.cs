@@ -105,8 +105,12 @@ public class PlayerState : MonoBehaviour
             switch (SpaceNumber)
             {
                 case 1:
-                    Durability_1 = 0;
-                    Activity_1 = false;
+                    float temporaryDurability = Durability_2;
+                    bool temporaryActivity = Activity_2;
+                    Durability_2 = 0;
+                    Activity_2 = false;
+                    Activity_1 = temporaryActivity;
+                    Durability_1 = temporaryDurability;
                     break;
                 case 2:
                     Durability_2 = 0;
