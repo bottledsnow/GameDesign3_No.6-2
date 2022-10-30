@@ -313,7 +313,7 @@ GameObject:
   - component: {fileID: 8330089798090565218}
   - component: {fileID: 8330089798090565219}
   m_Layer: 5
-  m_Name: UI v0
+  m_Name: Canva_UI v0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

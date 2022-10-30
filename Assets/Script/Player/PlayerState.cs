@@ -17,8 +17,7 @@ public class PlayerState : MonoBehaviour
     private bool Activity_1;
     [SerializeField]
     private float MaxDurability_1;
-    [SerializeField]
-    private float Durability_1;
+    public float Durability_1;
     [SerializeField]
     private float lose_1;
     [Header("斗篷 2 號位置")]
@@ -26,8 +25,7 @@ public class PlayerState : MonoBehaviour
     private bool Activity_2;
     [SerializeField]
     private float MaxDurability_2;
-    [SerializeField]
-    private float Durability_2;
+    public float Durability_2;
     [SerializeField]
     private float lose_2;
     [Header("特效")]

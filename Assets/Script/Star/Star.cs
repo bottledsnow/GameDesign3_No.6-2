@@ -13,10 +13,9 @@ public class Star : MonoBehaviour
     }
 
     private Animator animator;
-    [SerializeField]
     private CloakSystem CloakSystem;
-    [SerializeField]
     private PlayerState StateSystem;
+    private UIMannager UImannager;
     [SerializeField]
     private CloakSystem.Color thisColor;
 
@@ -25,8 +24,9 @@ public class Star : MonoBehaviour
         animator = GetComponent<Animator>();
         CloakSystem = GameMannager.gameMannager.cloakSystem;
         StateSystem = GameMannager.gameMannager.playerState;
+        UImannager = GameMannager.gameMannager.UImannager;
     }
-    
+
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag == "Player")
@@ -40,6 +40,7 @@ public class Star : MonoBehaviour
                 CloakSystem.Space1Color = thisColor;
                 CloakSystem.Space1 = true;
                 StateSystem.DurabilitySystem(1,"Get");
+                UImannager.SwitchCloakBarColor();
             }
             else
             if (CloakSystem.Space1Color == thisColor)
@@ -53,6 +54,7 @@ public class Star : MonoBehaviour
                 CloakSystem.Space2Color = thisColor;
                 CloakSystem.Space2 = true;
                 StateSystem.DurabilitySystem(2,"Get");
+                UImannager.SwitchCloakBarColor();
             }
             else
             if(CloakSystem.Space2Color==thisColor)

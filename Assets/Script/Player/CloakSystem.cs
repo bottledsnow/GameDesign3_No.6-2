@@ -30,7 +30,7 @@ public class CloakSystem : MonoBehaviour
     [SerializeField]
     private GameObject[] PlayerChild;
     private PlayerState playerState;
-
+    private UIMannager UImannager;
 
     [Header("1號 斗篷欄位")]
     public bool Space1;
@@ -70,6 +70,7 @@ public class CloakSystem : MonoBehaviour
     private void Start()
     {
         playerState = GameMannager.gameMannager.playerState;
+        UImannager = GameMannager.gameMannager.UImannager;
         int childNumber = transform.childCount;
         PlayerChild = new GameObject[childNumber];
         for (int i = 0; i < childNumber;i++)
@@ -79,7 +80,6 @@ public class CloakSystem : MonoBehaviour
     }
     private void Update()
     {
-        UIupdate();
         SwitchSystem();
     }
 
@@ -203,6 +203,7 @@ public class CloakSystem : MonoBehaviour
             Debug.Log("玩家恢復為白色斗篷");
             SpaceNumber = 0;
         }
+        UImannager.SwitchCloakBarColor();
     }
     public void SwitchColor(int SpaceNumber)
     {
@@ -313,15 +314,5 @@ public class CloakSystem : MonoBehaviour
                 break;
         }
     }
-    private void UIupdate()
-    {
-        if (Space1 == true)
-        {
-
-        }
-        if (Space2 == true)
-        {
-
-        }
-    }
+    
 }
