@@ -35,6 +35,7 @@ public class PlayerState : MonoBehaviour
     private void Update()
     {
         DurabilitySystem();
+        LifeSystem();
     }
     private void DurabilitySystem()
     {
@@ -116,9 +117,13 @@ public class PlayerState : MonoBehaviour
     }
     private void LifeSystem()
     {
-        if (Hp > MaxHp)
+        if (Hp >= MaxHp)
         {
             Hp = MaxHp;
+        }else
+        if (0<Hp && Hp<MaxHp)
+        {
+            Hp += Recover * Time.deltaTime;
         }
         else
         if (Hp <= 0)
