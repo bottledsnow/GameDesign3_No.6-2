@@ -6,8 +6,11 @@ public class PlayerState : MonoBehaviour
 {
     private CloakSystem cloakSystem;
     [Header("生命")]
-    public float MaxHp;
+    [SerializeField]
+    private float MaxHp;
+    [SerializeField]
     public float Hp;
+    [SerializeField]
     public float Recover;
     [Header("斗篷 1 號位置")]
     [SerializeField]
@@ -130,5 +133,10 @@ public class PlayerState : MonoBehaviour
         {
             Debug.Log("玩家死亡");
         }
+    }
+
+    public void GetHurt(float Damage)
+    {
+        Hp -= Damage;
     }
 }
