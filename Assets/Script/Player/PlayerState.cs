@@ -30,6 +30,9 @@ public class PlayerState : MonoBehaviour
     private float Durability_2;
     [SerializeField]
     private float lose_2;
+    [Header("¯S®Ä")]
+    [SerializeField]
+    private ParticleSystem hurtParticle;
 
     private void Start()
     {
@@ -138,5 +141,7 @@ public class PlayerState : MonoBehaviour
     public void GetHurt(float Damage)
     {
         Hp -= Damage;
+        hurtParticle.Play();
     }
+
 }
