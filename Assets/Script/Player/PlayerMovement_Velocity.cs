@@ -187,8 +187,26 @@ public class PlayerMovement_Velocity : MonoBehaviour
         Ray ray = new Ray(this.transform.position, direction);
 
         LayerMask mask = LayerMask.GetMask("surrounding");
+        LayerMask maskR = LayerMask.GetMask("Color_Red");
+        LayerMask maskB = LayerMask.GetMask("Color_Blue");
+        LayerMask maskG = LayerMask.GetMask("Color_Green");
 
         if (Physics.Raycast(ray, rayLength, mask))
+        {
+            jumpKey = true;
+        } 
+        else
+        if (Physics.Raycast(ray, rayLength, maskR)) 
+        {
+            jumpKey = true;
+        }
+        else
+        if (Physics.Raycast(ray, rayLength, maskB))
+        {
+            jumpKey = true;
+        }
+        else
+        if (Physics.Raycast(ray, rayLength, maskG))
         {
             jumpKey = true;
         }
