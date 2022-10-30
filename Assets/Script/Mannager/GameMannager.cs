@@ -13,4 +13,5 @@ public class GameMannager : MonoBehaviour
     public CloakSystem cloakSystem;
     public PlayerState playerState;
     public UIMannager UImannager;
+    public DialogueSystem dialogueSystem;
 }

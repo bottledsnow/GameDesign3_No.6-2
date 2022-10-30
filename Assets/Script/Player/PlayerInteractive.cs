@@ -4,31 +4,35 @@ using UnityEngine;
 
 public class PlayerInteractive : MonoBehaviour
 {
-    private GameObject InterObj;
     //基礎流程，雷射→打到物件→調查
     //基礎流程，觸發→偵測物件→調查
-    private bool InteractiveTrigger;
+    private DialogueSystem dialogueSystem;
+    private bool canTalk;
+
+    private void Start()
+    {
+        dialogueSystem = GameMannager.gameMannager.dialogueSystem;
+    }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "KeyItem")
+        if(other.tag=="NPC")
         {
-            Debug.Log("觸發調查");
-            InteractiveTrigger = true;
-            InterObj = other.gameObject;
+            canTalk = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "NPC")
+        {
+            canTalk = false;
         }
     }
 
     private void Update()
     {
-        Interactive();
-    }
-
-    private void Interactive()
-    {
-        //調查物件
-        if(InteractiveTrigger)
+        if(Input.GetKeyDown(KeyCode.E) && canTalk)
         {
-
+            dialogueSystem.StartMeet1();
         }
     }
 
