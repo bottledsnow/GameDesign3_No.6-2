@@ -50,6 +50,10 @@ namespace DialogueEditor
 
         private void Update()
         {
+            if(Input.GetMouseButtonDown(0))
+            {
+                OnClick();
+            }
             if (Hovering)
             {
                 m_hoverT += Time.deltaTime;
