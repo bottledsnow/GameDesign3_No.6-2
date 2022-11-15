@@ -5,6 +5,7 @@ using DialogueEditor;
 
 public class DialogueSystem : MonoBehaviour
 {
+    public bool Ontalk;
     [SerializeField]
     private NPCConversation Meet1;
     public void StartMeet1()

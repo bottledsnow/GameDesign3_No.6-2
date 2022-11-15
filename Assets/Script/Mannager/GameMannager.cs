@@ -8,10 +8,13 @@ public class GameMannager : MonoBehaviour
     private void Awake()
     {
         gameMannager = GetComponent<GameMannager>();
+        eventMannager = GetComponent<EventMannager>();
     }
 
+    public EventMannager eventMannager;
     public CloakSystem cloakSystem;
     public PlayerState playerState;
     public UIMannager UImannager;
     public DialogueSystem dialogueSystem;
+    
 }

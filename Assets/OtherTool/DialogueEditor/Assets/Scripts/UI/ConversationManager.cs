@@ -7,6 +7,7 @@ namespace DialogueEditor
 {
     public class ConversationManager : MonoBehaviour
     {
+        private DialogueSystem dialogueSystem;
         private enum eState
         {
             TransitioningDialogueBoxOn,
@@ -88,6 +89,7 @@ namespace DialogueEditor
 
         private void Awake()
         {
+            dialogueSystem = GameMannager.gameMannager.dialogueSystem;
             // Destroy myself if I am not the singleton
             if (Instance != null && Instance != this)
             {
@@ -145,6 +147,8 @@ namespace DialogueEditor
 
         public void StartConversation(NPCConversation conversation)
         {
+            dialogueSystem.Ontalk = true;
+
             m_conversation = conversation.Deserialize();
             if (OnConversationStarted != null)
                 OnConversationStarted.Invoke();
@@ -156,6 +160,7 @@ namespace DialogueEditor
 
         public void EndConversation()
         {
+            dialogueSystem.Ontalk = false;
             SetState(eState.TransitioningDialogueOff);
 
             if (OnConversationEnded != null)
