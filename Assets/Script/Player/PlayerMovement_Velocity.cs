@@ -75,7 +75,7 @@ public class PlayerMovement_Velocity : MonoBehaviour
         MoveSpeedx = Player.velocity.x;
         MoveSpeedz = Player.velocity.z;
         animator.SetFloat("MoveSpeedx", MoveSpeedx);
-        animator.SetFloat("MoveSpeedz", MoveSpeedz);
+        //animator.SetFloat("MoveSpeedz", MoveSpeedz);
 
         if(Player.velocity.x < -StopMoveRange || Player.velocity.x > StopMoveRange)
             OnMove = true;

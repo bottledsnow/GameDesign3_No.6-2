@@ -89,7 +89,6 @@ namespace DialogueEditor
 
         private void Awake()
         {
-            dialogueSystem = GameMannager.gameMannager.dialogueSystem;
             // Destroy myself if I am not the singleton
             if (Instance != null && Instance != this)
             {
@@ -104,6 +103,10 @@ namespace DialogueEditor
             TurnOffUI();
         }
 
+        private void Start()
+        {
+            dialogueSystem = GameMannager.gameMannager.dialogueSystem;
+        }
         private void OnDestroy()
         {
             Instance = null;
