@@ -8,6 +8,7 @@ TagManager:
   - FlyingStone
   - NPC
   - Star
+  - Teleportation
   layers:
   - Default
   - TransparentFX

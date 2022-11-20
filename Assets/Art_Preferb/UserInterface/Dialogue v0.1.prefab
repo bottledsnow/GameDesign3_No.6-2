@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Name.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9a7a47eb900805d43b586c438f2a1d0c, type: 2}
+  m_sharedMaterial: {fileID: -7055893074129259497, guid: 9a7a47eb900805d43b586c438f2a1d0c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
+  m_fontSize: 22.3
   m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -330,10 +330,10 @@ RectTransform:
   m_Father: {fileID: 4546346718041797908}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.35142687, y: 0.087000005}
-  m_AnchorMax: {x: 0.46042687, y: 0.32036248}
-  m_AnchoredPosition: {x: -0.7310486, y: 0}
-  m_SizeDelta: {x: -1.4620972, y: -1.8399963}
+  m_AnchorMin: {x: 0.58648103, y: 0.272}
+  m_AnchorMax: {x: 0.71900004, y: 0.45744726}
+  m_AnchoredPosition: {x: -0.000015258789, y: 0}
+  m_SizeDelta: {x: 12.9367, y: 8.5451}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4546346718229123325
 CanvasRenderer:
@@ -590,8 +590,8 @@ MonoBehaviour:
   m_text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
     tempor incididunt ut labore et dolore magna aliqua.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9a7a47eb900805d43b586c438f2a1d0c, type: 2}
+  m_sharedMaterial: {fileID: -7055893074129259497, guid: 9a7a47eb900805d43b586c438f2a1d0c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -615,7 +615,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16.05
+  m_fontSize: 15.9
   m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 1

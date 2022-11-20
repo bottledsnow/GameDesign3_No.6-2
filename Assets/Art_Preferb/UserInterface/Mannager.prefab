@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5129772246549318480
+--- !u!1 &3962299640129914710
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,10 +8,11 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5129772246549318483}
-  - component: {fileID: 5129772246549318482}
-  - component: {fileID: 5129772246549318484}
-  - component: {fileID: 5129772246549318485}
+  - component: {fileID: 3962299640129914709}
+  - component: {fileID: 3962299640129914708}
+  - component: {fileID: 3962299640129914706}
+  - component: {fileID: 3962299640129914707}
+  - component: {fileID: 3962299640129914705}
   m_Layer: 0
   m_Name: Mannager
   m_TagString: Untagged
@@ -19,13 +20,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5129772246549318483
+--- !u!4 &3962299640129914709
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5129772246549318480}
+  m_GameObject: {fileID: 3962299640129914710}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -33,29 +34,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5129772246549318482
+--- !u!114 &3962299640129914708
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5129772246549318480}
+  m_GameObject: {fileID: 3962299640129914710}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0226dee93de3fb40a96dc4966f9a222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventMannager: {fileID: 3962299640129914705}
   cloakSystem: {fileID: 0}
   playerState: {fileID: 0}
-  UImannager: {fileID: 5129772246549318484}
+  UImannager: {fileID: 3962299640129914706}
   dialogueSystem: {fileID: 0}
---- !u!114 &5129772246549318484
+--- !u!114 &3962299640129914706
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5129772246549318480}
+  m_GameObject: {fileID: 3962299640129914710}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e9976ee7e9723942a65fb4cbd95a1e1, type: 3}
@@ -83,13 +85,13 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
---- !u!82 &5129772246549318485
+--- !u!82 &3962299640129914707
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5129772246549318480}
+  m_GameObject: {fileID: 3962299640129914710}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -179,3 +181,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3962299640129914705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3962299640129914710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8961b89b08e3dd74f9c79cbde00ab371, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventTrigger: 0000
+  Star1: {fileID: 0}
+  Star2: {fileID: 0}
+  Telepor: 000000
+  StarRoad: {fileID: 0}
+  realObservatory: {fileID: 0}

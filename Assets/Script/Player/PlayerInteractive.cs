@@ -8,8 +8,9 @@ public class PlayerInteractive : MonoBehaviour
     //基礎流程，觸發→偵測物件→調查
     private DialogueSystem dialogueSystem;
     [Header("事件")]
+    public int MeetID=0;
     [SerializeField]
-    private bool Meet1; 
+    private bool[] Meet; 
     private bool canTalk;
     private bool OnTalk;
 
@@ -36,10 +37,10 @@ public class PlayerInteractive : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && canTalk && OnTalk != true)
         {
-            if(!Meet1)
+            if(!Meet[MeetID])
             {
-                dialogueSystem.StartMeet1();
-                Meet1 = true;
+                dialogueSystem.StartMeet(MeetID);
+                Meet[MeetID] = true;
             }
         }
     }

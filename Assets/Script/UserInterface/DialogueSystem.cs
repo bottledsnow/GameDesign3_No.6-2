@@ -7,9 +7,9 @@ public class DialogueSystem : MonoBehaviour
 {
     public bool Ontalk;
     [SerializeField]
-    private NPCConversation Meet1;
-    public void StartMeet1()
+    private NPCConversation[] Meet;
+    public void StartMeet(int ID)
     {
-        ConversationManager.Instance.StartConversation(Meet1);
+        ConversationManager.Instance.StartConversation(Meet[ID]);
     }
 }

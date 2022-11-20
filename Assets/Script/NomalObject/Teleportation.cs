@@ -6,15 +6,50 @@ public class Teleportation : MonoBehaviour
 {
     [SerializeField]
     private Animator animator;
-    
+    [SerializeField]
+    private int teleportationID;
+    [SerializeField]
+    private EventMannager eventMannager;
+    private bool ready;
+
+    private void Start()
+    {
+        eventMannager = GameMannager.gameMannager.eventMannager;
+    }
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("觸發");
         if (other.gameObject.tag == "Star")
         {
             other.gameObject.SetActive(false);
-            Debug.Log("觸發2");
-            animator.Play("Brewing");
+            Teleport(0);
         }
+        if (other.gameObject.tag == "Player" && ready)
+        {
+            Debug.Log("Player Trigger Teleport");
+            Teleport(1);
+            eventMannager.Event2();
+        }
+    }
+
+    private void Teleport(int State)
+    {
+        switch(State)
+        {
+            case 0:
+                ready = true;
+                //關掉等待接收的特效
+                //開啟等待傳送的特效
+                break;
+            case 1:
+                Debug.Log("觸發2");
+                animator.Play("Brewing");
+                eventMannager.Telepor[teleportationID] = true;
+                //觸發前往下一個的特效
+                break;
+            case 2:
+                break;
+        }
+           
     }
 }
