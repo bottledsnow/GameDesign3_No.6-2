@@ -15,6 +15,7 @@ public class Teleportation : MonoBehaviour
     private void Start()
     {
         eventMannager = GameMannager.gameMannager.eventMannager;
+        animator.Play("absorb");
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -38,8 +39,7 @@ public class Teleportation : MonoBehaviour
         {
             case 0:
                 ready = true;
-                //關掉等待接收的特效
-                //開啟等待傳送的特效
+                animator.Play("diverge");
                 break;
             case 1:
                 Debug.Log("觸發2");
