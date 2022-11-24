@@ -64,6 +64,11 @@ public class Star : MonoBehaviour
             {
                 Debug.Log("¬P·½¥|·¸");
             }
+            
         }
+    }
+    public void DestroyStar()
+    {
+        Destroy(this.animator.gameObject);
     }
 }
