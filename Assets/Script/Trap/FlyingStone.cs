@@ -15,7 +15,8 @@ public class FlyingStone : MonoBehaviour
     private float speed;
     [SerializeField]
     private float maxSpeed;
-
+    [SerializeField]
+    private bool Trigger;
     private void Start()
     {
         Target = position[targetNumber];
@@ -23,9 +24,12 @@ public class FlyingStone : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        Vector3 StartPosition = this.transform.position;
-        Vector3 Direction = Target.transform.position-StartPosition;
-        stoneRigid.velocity = Direction * speed;
+        if(Trigger)
+        {
+            Vector3 StartPosition = this.transform.position;
+            Vector3 Direction = Target.transform.position - StartPosition;
+            stoneRigid.velocity = Direction * speed;
+        }
     }
 
     public void PositionMoveTo(int PositionID)
@@ -41,5 +45,14 @@ public class FlyingStone : MonoBehaviour
             Target = position[0];
             targetNumber = 0;
         }
+    }
+
+    public void StartMove()
+    {
+        Trigger = true;
+    }
+    public void StopMove()
+    {
+        Trigger = false;
     }
 }
