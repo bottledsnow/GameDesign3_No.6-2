@@ -5091,6 +5091,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: -3998898468969170061, guid: 15b7c6a7082854642b222dde00a18a11, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 750ecb784515d17429af583e3f20f477, type: 2}
     - target: {fileID: 919132149155446097, guid: 15b7c6a7082854642b222dde00a18a11, type: 3}
       propertyPath: m_Name
       value: starTemple v0.8
@@ -5099,6 +5103,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3355947057979480241, guid: 15b7c6a7082854642b222dde00a18a11, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 226d522c709730644bb4aea499ab77d6, type: 2}
+    - target: {fileID: 3896294155803048942, guid: 15b7c6a7082854642b222dde00a18a11, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: be2203bd10a1b2840a48c7c74179d7fc, type: 2}
+    - target: {fileID: 4663237508454996382, guid: 15b7c6a7082854642b222dde00a18a11, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 750ecb784515d17429af583e3f20f477, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15b7c6a7082854642b222dde00a18a11, type: 3}
 --- !u!4 &793925233 stripped
@@ -7340,7 +7356,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1587245887}
-  m_LocalRotation: {x: -0.06204313, y: 0.007651218, z: 0.00047563584, w: 0.9980441}
+  m_LocalRotation: {x: -0.062043127, y: 0.0076512215, z: 0.000475636, w: 0.9980441}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
