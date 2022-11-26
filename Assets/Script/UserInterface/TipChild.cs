@@ -5,21 +5,20 @@ using UnityEngine;
 public class TipChild : MonoBehaviour
 {
     [SerializeField]
+    public AnimatorControllerParameter Controller;
+    [SerializeField]
     private TipSystem tipSystem;
     [SerializeField]
-    private bool Toshow;
-
+    private wordType wordType;
+    [SerializeField]
+    private int TriiggerID;
+    
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag=="Player")
         {
-            if(Toshow)
-            {
-                tipSystem.ToShow();
-            }else
-            {
-                tipSystem.ToClose();
-            }
+            tipSystem.ToShow(wordType, TriiggerID);
+            Debug.Log("Trigeer");
         }
     }
 }

@@ -4918,6 +4918,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisColor: 1
+  floatingFroce: 10
 --- !u!95 &5532841810691415245
 Animator:
   serializedVersion: 3

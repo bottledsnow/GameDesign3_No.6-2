@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class Star : MonoBehaviour
 {
     private enum Color
@@ -11,14 +10,14 @@ public class Star : MonoBehaviour
         藍色星源 = 2,
         綠色星源 = 3,
     }
-
     private Animator animator;
     private CloakSystem CloakSystem;
     private PlayerState StateSystem;
     private UIMannager UImannager;
     [SerializeField]
     private CloakSystem.Color thisColor;
-
+    [SerializeField]
+    private float floatingFroce;
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -29,6 +28,7 @@ public class Star : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
+        Debug.Log("Trigggggggggggggggggggger");
         if (other.gameObject.tag == "Player")
         {
             animator.Play("GetStar");
@@ -65,10 +65,22 @@ public class Star : MonoBehaviour
                 Debug.Log("星源四溢");
             }
             
+        }else
+        {
+            
         }
     }
+    
     public void DestroyStar()
     {
         Destroy(this.animator.gameObject);
+    }
+    private void floating()
+    {
+        //nouse;
+        Rigidbody rigid = this.GetComponent<Rigidbody>();
+        Vector3 force = new Vector3(0, floatingFroce, 0);
+        rigid.AddForce(force, ForceMode.Force);
+        Debug.Log("Forceeee");
     }
 }
