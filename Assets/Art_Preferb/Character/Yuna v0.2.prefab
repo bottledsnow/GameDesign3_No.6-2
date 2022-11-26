@@ -20763,8 +20763,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf9bf2623564db4438ff79e08ee14ce1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.6
-  runSpeed: 3
+  PlayerVelocity: {x: 0, y: 0, z: 0}
+  forward: {x: 0, y: 0, z: 0}
+  right: {x: 0, y: 0, z: 0}
+  AngleDifference: 10
+  speed: 1.5
+  runSpeed: 5
   MaxSpeed: 1
   rayLength: 0.3
   jumpForce: 6

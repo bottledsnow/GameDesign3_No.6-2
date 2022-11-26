@@ -4,11 +4,22 @@ using UnityEngine;
 
 public class PlayerMovement_Velocity : MonoBehaviour
 {
+    [Header("菏北")]
+    [SerializeField]
+    private Vector3 PlayerVelocity;
+    [SerializeField]
+    private Vector3 forward;
+    [SerializeField]
+    private Vector3 right;
     private float Horizontal;
     private float Vertical;
 
     private Rigidbody Player;
     [Header("膀セ把计")]
+    [SerializeField]
+    private float MoveDrag;
+    [SerializeField]
+    private float AngleDifference;
     [SerializeField]
     private float speed;
     [SerializeField]
@@ -36,6 +47,7 @@ public class PlayerMovement_Velocity : MonoBehaviour
     }
     void Update()
     {
+        PlayerVelocity = Player.velocity;
         playerInput();
         speedLimiter();
         AnimatorControl();
@@ -101,25 +113,36 @@ public class PlayerMovement_Velocity : MonoBehaviour
     }
     private void Move()
     {
-        /*
-        Vector3 forward = Camera.main.transform.forward.normalized;
-        Vector3 right = Camera.main.transform.right.normalized;
-        */
+
+        if (jumpKey) Player.drag = MoveDrag;
+        else Player.drag = 0;
         Vector3 forward = new Vector3(Camera.main.transform.forward.x,0, Camera.main.transform.forward.z).normalized;
         Vector3 right = new Vector3(Camera.main.transform.right.x,0, Camera.main.transform.right.z).normalized;
 
-        Player.velocity += new Vector3(right.x, 0, right.z) * Horizontal * speed;
         Player.velocity += new Vector3(forward.x, 0, forward.z) * Vertical * speed;
-       // Debug.DrawLine(Player.transform.position, new Vector3(forward.x,0,forward.z), Color.red);
+        float angleDifference = Player.transform.rotation.eulerAngles.y - Camera.main.transform.rotation.eulerAngles.y;
+        if (Mathf.Abs(angleDifference) > AngleDifference)
+        {
+            Player.velocity += new Vector3(right.x, 0, right.z) * Horizontal * speed;
+        }
+        
+        
+
         
     }
     private void Run()
     {
+        if (jumpKey) Player.drag = MoveDrag;
+        else Player.drag = 0;
         Vector3 forward = new Vector3(Camera.main.transform.forward.x, 0, Camera.main.transform.forward.z).normalized;
         Vector3 right = new Vector3(Camera.main.transform.right.x, 0, Camera.main.transform.right.z).normalized;
 
-        Player.velocity += new Vector3(right.x, 0, right.z) * Horizontal * runSpeed;
         Player.velocity += new Vector3(forward.x, 0, forward.z) * Vertical * runSpeed;
+        float angleDifference = Player.transform.rotation.eulerAngles.y - Camera.main.transform.rotation.eulerAngles.y;
+        if (Mathf.Abs(angleDifference) > AngleDifference)
+        {
+            Player.velocity += new Vector3(right.x, 0, right.z) * Horizontal * runSpeed;
+        }
     }
 
     private void speedLimiter()
@@ -154,9 +177,10 @@ public class PlayerMovement_Velocity : MonoBehaviour
         Vector3 directionRight = new Vector3(cameraRight.x, 0, cameraRight.z);
 
         Vector3 Direction = directionForward * Vertical + directionRight * Horizontal;
+        
         Quaternion quaternion = Quaternion.LookRotation(Direction);
 
-        if (Horizontal != 0 || Vertical != 0)
+        if (Horizontal != 0 || Vertical != 0 )
         {
             this.transform.rotation = quaternion;
             Debug.Log("锣传い");
