@@ -11,6 +11,10 @@ public class TipSystem : MonoBehaviour
     private Animator animator;
     private bool TriggerEnter;
     private bool TriggerExit;
+    [Header("Event")]
+    [TextArea(3,10)]
+    [SerializeField]
+    private string[] Tips;
 
     private void Start()
     {
@@ -36,5 +40,4 @@ public class TipSystem : MonoBehaviour
             TriggerExit = true;
         }
     }
-
 }

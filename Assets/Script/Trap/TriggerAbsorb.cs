@@ -8,17 +8,16 @@ public class TriggerAbsorb : MonoBehaviour
     public UnityEvent addEvent;
     [SerializeField]
     private GameObject absorb;
-    private void OnTriggerEnter(Collision collision)
+    
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == "Star")
+        if(other.tag=="Star")
         {
-            Destroy(collision.gameObject);
+            Destroy(other.gameObject);
             absorb.SetActive(false);
             TriggerEvent();
         }
     }
-
-
     private void TriggerEvent()
     {
         Debug.Log("Event of need to trigger");

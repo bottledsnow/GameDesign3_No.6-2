@@ -184,6 +184,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Show: 0
   TipUI: {fileID: 5496583157547258304}
+  Tips:
+  - 
+  - 
+  - 
 --- !u!95 &5496583156881327743
 Animator:
   serializedVersion: 3
