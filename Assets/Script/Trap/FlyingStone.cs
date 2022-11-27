@@ -14,8 +14,6 @@ public class FlyingStone : MonoBehaviour
     [SerializeField]
     private float speed;
     [SerializeField]
-    private float maxSpeed;
-    [SerializeField]
     private bool Trigger;
     private void Start()
     {

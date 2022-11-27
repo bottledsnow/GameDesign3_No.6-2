@@ -24,4 +24,9 @@ public class MenuMannager : MonoBehaviour
     {
         Debug.Log("開啟製作人員");
     }
+
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
 }

@@ -5,12 +5,19 @@ using UnityEngine;
 public class EventMannager : MonoBehaviour
 {
     private PlayerInteractive playerInteractive;
-    [Header("Event1")]
+    [Header("ALL")]
     [SerializeField]
     private bool[] EventTrigger;
+    [Header("Event0")]
+    [SerializeField]
+    private GameObject Mine1;
+    [SerializeField]
+    private GameObject Mine2;
+    [Header("Event1")]
     [SerializeField]
     private GameObject Star1;
-
+    [SerializeField]
+    private GameObject Mine;
     [Header("Event2")]
     public bool[] Telepor;
     [Header("Event3")]
@@ -23,10 +30,19 @@ public class EventMannager : MonoBehaviour
     {
         playerInteractive = GameMannager.gameMannager.cloakSystem.gameObject.GetComponent<PlayerInteractive>();
     }
+    public void Event0()
+    {
+        Mine1.SetActive(false);
+        Mine2.SetActive(false);
+        EventTrigger[0] = true;
+        Debug.Log("Event0 Trigger");
+    }
     public void Event1()
     {
         Star1.SetActive(true);
-        EventTrigger[0] =true;
+        EventTrigger[1] =true;
+        Mine.SetActive(true);
+        Debug.Log("Event1 Trigger");
     }
 
     public void Event2()
@@ -34,8 +50,9 @@ public class EventMannager : MonoBehaviour
         if(Telepor[0]&& Telepor[1]&&Telepor[2])
         {
             Debug.Log("¦^¥h§ä NPC §a¡I");
-            EventTrigger[1] = true;
+            EventTrigger[2] = true;
             playerInteractive.MeetID = 1;
+            Debug.Log("Event2 Trigger");
         }
     }
 
@@ -43,5 +60,7 @@ public class EventMannager : MonoBehaviour
     {
         StarRoad.SetActive(true);
         realObservatory.SetActive(true);
+        EventTrigger[3] = true;
+        Debug.Log("Event3 Trigger");
     }
 }

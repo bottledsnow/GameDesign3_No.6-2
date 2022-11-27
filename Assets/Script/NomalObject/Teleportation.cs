@@ -10,6 +10,12 @@ public class Teleportation : MonoBehaviour
     private int teleportationID;
     [SerializeField]
     private EventMannager eventMannager;
+    [SerializeField]
+    private GameObject Mine_Triggerfalse1;
+    [SerializeField]
+    private GameObject Mine_Triggerfalse2;
+    [SerializeField]
+    private GameObject Mine_Triggertrue;
     private bool ready;
 
     private void Start()
@@ -30,6 +36,9 @@ public class Teleportation : MonoBehaviour
             Debug.Log("Player Trigger Teleport");
             Teleport(1);
             eventMannager.Event2();
+            Mine_Triggerfalse1.SetActive(false);
+            Mine_Triggerfalse2.SetActive(false);
+            Mine_Triggertrue.SetActive(true);
         }
     }
 

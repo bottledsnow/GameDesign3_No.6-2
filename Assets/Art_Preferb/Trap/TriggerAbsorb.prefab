@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1858566731198546936}
   - component: {fileID: 1858566731198546937}
   - component: {fileID: 1858566731198546938}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Teleportation_absorb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4818,7 +4818,7 @@ GameObject:
   - component: {fileID: 1858566731735312647}
   - component: {fileID: 1858566731735312646}
   - component: {fileID: 7047602575149761340}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TriggerAbsorb
   m_TagString: Untagged
   m_Icon: {fileID: 0}

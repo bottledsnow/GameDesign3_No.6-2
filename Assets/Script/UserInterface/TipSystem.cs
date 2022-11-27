@@ -17,8 +17,7 @@ public class TipSystem : MonoBehaviour
     [SerializeField]
     private TMP_Text Text;
     [Header("Setting")]
-    [SerializeField]
-    private float waitTime;
+    public float waitTime;
     [Header("Event")]
     [TextArea(3,10)]
     [SerializeField]

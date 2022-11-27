@@ -57,6 +57,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e4913971d2c7b8498344ec4cab848fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TriggerYet: 0
   tipSystem: {fileID: 5496583156881327713}
   wordType: 0
   TriiggerID: 0
@@ -185,6 +186,13 @@ MonoBehaviour:
   Text: {fileID: 5496583156885980125}
   waitTime: 2
   Tips:
+  - "WASD \u79FB\u52D5"
+  - "\u6309\u4E0B E \u4E92\u52D5"
+  - "\u78B0\u89F8\u62FE\u53D6\u661F\u6E90"
+  - "\u6309\u4E0B Q \u5207\u63DB\u661F\u6E90"
+  - "\u540C\u984F\u8272\u53EF\u7A7F\u8D8A\u7269\u4EF6"
+  - "\u6309\u4E0B F \u53EF\u4E1F\u64F2\u661F\u6E90"
+  Mines:
   - "\u9019\u5C31\u662F\u661F\u6E90...."
   - "\u7ADF\u7136\u7A7F\u904E\u4F86\u4E86\uFF01"
   - "\u9019\u88E1\u4E0D\u662F\u5730\u7403\u4E86..."
@@ -195,13 +203,6 @@ MonoBehaviour:
   - "\u600E\u9EBC\u9019\u6A23\uFF01\u5E73\u53F0\u90FD\u4E0D\u80FD\u7528\uFF01"
   - "\u661F\u5149\u532F\u805A?"
   - "\u54C7\u54E6..."
-  Mines:
-  - "WASD \u79FB\u52D5"
-  - "\u6309\u4E0B E \u4E92\u52D5"
-  - "\u78B0\u89F8\u62FE\u53D6\u661F\u6E90"
-  - "\u6309\u4E0B Q \u5207\u63DB\u661F\u6E90"
-  - "\u540C\u984F\u8272\u53EF\u7A7F\u8D8A\u7269\u4EF6"
-  - "\u6309\u4E0B F \u53EF\u4E1F\u64F2\u661F\u6E90"
 --- !u!95 &5496583156881327743
 Animator:
   serializedVersion: 3
