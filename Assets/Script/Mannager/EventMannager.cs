@@ -10,8 +10,7 @@ public class EventMannager : MonoBehaviour
     private bool[] EventTrigger;
     [SerializeField]
     private GameObject Star1;
-    [SerializeField]
-    private GameObject Star2;
+
     [Header("Event2")]
     public bool[] Telepor;
     [Header("Event3")]
@@ -27,7 +26,6 @@ public class EventMannager : MonoBehaviour
     public void Event1()
     {
         Star1.SetActive(true);
-        Star2.SetActive(true);
         EventTrigger[0] =true;
     }
 

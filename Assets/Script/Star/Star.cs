@@ -28,7 +28,6 @@ public class Star : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        Debug.Log("Trigggggggggggggggggggger");
         if (other.gameObject.tag == "Player")
         {
             animator.Play("GetStar");
@@ -81,6 +80,5 @@ public class Star : MonoBehaviour
         Rigidbody rigid = this.GetComponent<Rigidbody>();
         Vector3 force = new Vector3(0, floatingFroce, 0);
         rigid.AddForce(force, ForceMode.Force);
-        Debug.Log("Forceeee");
     }
 }
