@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Nextsceneiftouch : MonoBehaviour
 {
+	[SerializeField]
 	private Animator animator;
 	private void OnTriggerEnter(Collider other)
 	{
