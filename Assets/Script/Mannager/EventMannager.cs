@@ -25,6 +25,9 @@ public class EventMannager : MonoBehaviour
     private GameObject StarRoad;
     [SerializeField]
     private GameObject realObservatory;
+    [Header("Event4")]
+    [SerializeField]
+    private Animator KanaAnimator;
 
     private void Start()
     {
@@ -62,5 +65,9 @@ public class EventMannager : MonoBehaviour
         realObservatory.SetActive(true);
         EventTrigger[3] = true;
         Debug.Log("Event3 Trigger");
+    }
+    public void Event4()
+    {
+        KanaAnimator.Play("Stand");
     }
 }
