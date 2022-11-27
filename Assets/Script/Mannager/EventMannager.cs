@@ -25,6 +25,8 @@ public class EventMannager : MonoBehaviour
     private GameObject StarRoad;
     [SerializeField]
     private GameObject realObservatory;
+    [SerializeField]
+    private GameObject NormalObject;
     [Header("Event4")]
     [SerializeField]
     private Animator KanaAnimator;
@@ -63,6 +65,7 @@ public class EventMannager : MonoBehaviour
     {
         StarRoad.SetActive(true);
         realObservatory.SetActive(true);
+        NormalObject.SetActive(false);
         EventTrigger[3] = true;
         Debug.Log("Event3 Trigger");
     }
