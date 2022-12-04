@@ -115,7 +115,7 @@ public class PlayerMovement_Velocity : MonoBehaviour
     {
 
         if (jumpKey) Player.drag = MoveDrag;
-        else Player.drag = 0;
+        else Player.drag = 2;
         Vector3 forward = new Vector3(Camera.main.transform.forward.x,0, Camera.main.transform.forward.z).normalized;
         Vector3 right = new Vector3(Camera.main.transform.right.x,0, Camera.main.transform.right.z).normalized;
 
@@ -133,7 +133,7 @@ public class PlayerMovement_Velocity : MonoBehaviour
     private void Run()
     {
         if (jumpKey) Player.drag = MoveDrag;
-        else Player.drag = 0;
+        else Player.drag = 2;
         Vector3 forward = new Vector3(Camera.main.transform.forward.x, 0, Camera.main.transform.forward.z).normalized;
         Vector3 right = new Vector3(Camera.main.transform.right.x, 0, Camera.main.transform.right.z).normalized;
 

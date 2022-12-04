@@ -20685,7 +20685,7 @@ Transform:
   m_GameObject: {fileID: 785496355563022942}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -2.21, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 0.0048959292, y: 0.12037893, z: 0.0048959292}
   m_Children:
   - {fileID: 8833598104155182127}
   - {fileID: 9015539292594315386}
@@ -20765,10 +20765,10 @@ MonoBehaviour:
   PlayerVelocity: {x: 0, y: 0, z: 0}
   forward: {x: 0, y: 0, z: 0}
   right: {x: 0, y: 0, z: 0}
-  MoveDrag: 0
+  MoveDrag: 3
   AngleDifference: 10
-  speed: 1.5
-  runSpeed: 3.5
+  speed: 3
+  runSpeed: 6
   MaxSpeed: 1
   rayLength: 0.3
   jumpForce: 4
