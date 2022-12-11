@@ -52,7 +52,7 @@ public class EventMannager : MonoBehaviour
 
     public void Event2()
     {
-        if(Telepor[0]&& Telepor[1]&&Telepor[2])
+        if(Telepor[0])
         {
             Debug.Log("¦^¥h§ä NPC §a¡I");
             EventTrigger[2] = true;

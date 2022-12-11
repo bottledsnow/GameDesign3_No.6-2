@@ -17,6 +17,11 @@ public class Teleportation : MonoBehaviour
     [SerializeField]
     private GameObject Mine_Triggertrue;
     private bool ready;
+    [Header("Trigger")]
+    [SerializeField]
+    private GameObject Throw;
+    [SerializeField]
+    private GameObject Standing;
 
     private void Start()
     {
@@ -49,11 +54,19 @@ public class Teleportation : MonoBehaviour
             case 0:
                 ready = true;
                 animator.Play("diverge");
+                if(Throw!=null)
+                {
+                    Throw.SetActive(true);
+                }
                 break;
             case 1:
                 Debug.Log("觸發2");
                 animator.Play("Brewing");
                 eventMannager.Telepor[teleportationID] = true;
+                if (Standing != null)
+                {
+                    Standing.SetActive(true);
+                }
                 //觸發前往下一個的特效
                 break;
             case 2:

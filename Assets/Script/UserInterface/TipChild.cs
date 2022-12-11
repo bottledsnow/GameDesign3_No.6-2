@@ -33,11 +33,18 @@ public class TipChild : MonoBehaviour
     private GameObject Tips1;
     [SerializeField]
     private GameObject Tips2;
+    [Header("serial")]
+    [SerializeField]
+    private GameObject NextObject;
 
     private void OnTriggerEnter(Collider other)
     {
         if(!TriggerYet)
         {
+            if(NextObject!=null)
+            {
+                NextObject.SetActive(true);
+            }
             if (other.gameObject.tag == "Player")
             {
                 if(waitTime!=0)
