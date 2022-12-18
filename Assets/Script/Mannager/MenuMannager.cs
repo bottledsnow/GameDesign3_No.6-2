@@ -16,8 +16,14 @@ public class MenuMannager : MonoBehaviour
     
     private void Update()
     {
-        CreditInfo = aniCredit.GetCurrentAnimatorStateInfo(0);
-        SettingInfo = aniSetting.GetCurrentAnimatorStateInfo(0);
+        if(aniCredit!=null)
+        {
+            CreditInfo = aniCredit.GetCurrentAnimatorStateInfo(0);
+        }
+        if(aniSetting!=null)
+        {
+            SettingInfo = aniSetting.GetCurrentAnimatorStateInfo(0);
+        }
     }
     public void StartGame()
     {

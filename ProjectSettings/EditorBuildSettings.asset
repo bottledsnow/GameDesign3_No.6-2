@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Opening.unity
     guid: 122e1cb6db362844cbdfa0dccf91e3f8
+  - enabled: 1
+    path: Assets/Scenes/EndingAnimation.unity
+    guid: 003388a08839daa4c9338106de182543
   m_configObjects: {}
