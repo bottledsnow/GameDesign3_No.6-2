@@ -30,7 +30,6 @@ public class EventMannager : MonoBehaviour
     [Header("Event4")]
     [SerializeField]
     private Animator KanaAnimator;
-
     private void Start()
     {
         playerInteractive = GameMannager.gameMannager.cloakSystem.gameObject.GetComponent<PlayerInteractive>();
