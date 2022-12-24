@@ -41,6 +41,7 @@ public class EventMannager : MonoBehaviour
         Mine2.SetActive(false);
         EventTrigger[0] = true;
         Debug.Log("Event0 Trigger");
+        //跟卡娜對話
     }
     public void Event1()
     {
@@ -48,6 +49,7 @@ public class EventMannager : MonoBehaviour
         EventTrigger[1] =true;
         Mine.SetActive(true);
         Debug.Log("Event1 Trigger");
+        //對話完
     }
 
     public void Event2()
