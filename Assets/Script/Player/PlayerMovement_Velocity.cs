@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement_Velocity : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject Jumpvoice;
     [Header("ºÊ±±")]
     [SerializeField]
     private Vector3 PlayerVelocity;
@@ -197,6 +199,8 @@ public class PlayerMovement_Velocity : MonoBehaviour
             Player.AddForce(0, y, 0, ForceMode.Impulse);
             Debug.Log("¸õÅD");
             animator.SetTrigger("Jump");
+            GameObject voice = Instantiate(Jumpvoice, this.transform.position, Quaternion.identity);
+            Destroy(voice, 1);
         }
         else Debug.Log("µLªk¸õÅD");
     }
