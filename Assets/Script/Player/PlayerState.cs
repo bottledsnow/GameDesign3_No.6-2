@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class PlayerState : MonoBehaviour
 {
+    private Animator animator;
     private CloakSystem cloakSystem;
+    private FadeInOut fadeInout;
+    private RebirthManager rebirthManager;
+    private PlayerMovement_Velocity movement;
     [Header("生命")]
     [SerializeField]
     private float MaxHp;
@@ -32,14 +36,24 @@ public class PlayerState : MonoBehaviour
     [SerializeField]
     private ParticleSystem hurtParticle;
 
-    private void Start()
+    private void Awake()
     {
         cloakSystem = GameMannager.gameMannager.cloakSystem;
+        animator = GetComponent<Animator>();
+        fadeInout = GameMannager.gameMannager.fadeInOut;
+        rebirthManager = GameMannager.gameMannager.rebirthManager;
+        movement = GameMannager.gameMannager.movement;
     }
     private void Update()
     {
         DurabilitySystem();
         LifeSystem();
+
+        //test
+        if(Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            Hp = 0;
+        }
     }
     private void DurabilitySystem()
     {
@@ -136,7 +150,11 @@ public class PlayerState : MonoBehaviour
         else
         if (Hp <= 0)
         {
-            Debug.Log("玩家死亡");
+            animator.Play("Death");
+            rebirthManager.ToRebirth();
+            Hp = 100;
+            loseController();
+            Invoke("GetController", 1.5f);
         }
     }
 
@@ -146,4 +164,12 @@ public class PlayerState : MonoBehaviour
         hurtParticle.Play();
     }
 
+    private void loseController()
+    {
+        movement.enabled = false;
+    }
+    private void GetController()
+    {
+        movement.enabled = true;
+    }
 }

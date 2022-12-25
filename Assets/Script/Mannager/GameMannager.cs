@@ -16,5 +16,8 @@ public class GameMannager : MonoBehaviour
     public PlayerState playerState;
     public UIMannager UImannager;
     public DialogueSystem dialogueSystem;
+    public FadeInOut fadeInOut;
+    public RebirthManager rebirthManager;
+    public PlayerMovement_Velocity movement;
     
 }

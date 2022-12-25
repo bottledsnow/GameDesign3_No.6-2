@@ -4,11 +4,24 @@ using UnityEngine;
 
 public class RebirthManagerChild : RebirthManager
 {
+    [Header("Setting")]
+    [SerializeField]
+    private bool Check;
+    [SerializeField]
+    private RebirthManager rebirth;
+    [SerializeField]
+    private int PositionID;
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag=="Player")
+        if(Check)
         {
-            ToRebirth();
+            rebirth.Position = PositionID;
+        }else
+        {
+            if (other.tag == "Player")
+            {
+                ToRebirth();
+            }
         }
     }
 }
