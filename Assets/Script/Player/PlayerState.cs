@@ -152,7 +152,7 @@ public class PlayerState : MonoBehaviour
         {
             animator.Play("Death");
             rebirthManager.ToRebirth();
-            Hp = 100;
+            Hp = 80;
             loseController();
             Invoke("GetController", 1.5f);
         }

@@ -49,18 +49,19 @@ public class UIMannager : MonoBehaviour
     }
     private void ShowSystem()
     {
+        Vector3 temporaryHpScale = HpScale;
+        HpScale = new Vector3(ShowHp, temporaryHpScale.y, temporaryHpScale.z);
+
         if (ShowHp > 3.75f) ShowHp = 3.75f;
         else
         if (ShowHp < 3.75f && ShowHp > 0)
         {
-            Vector3 temporaryHpScale = HpScale;
-            HpScale = new Vector3(ShowHp, temporaryHpScale.y, temporaryHpScale.z);
             HpBar.transform.localScale = HpScale;
         }
         else
         if (ShowHp < 0.00f)
         {
-            HpBar.SetActive(false);
+            HpScale = new Vector3(4, 0.4f, 1);
         }
 
     }

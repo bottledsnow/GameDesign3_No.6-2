@@ -8,6 +8,10 @@ public class EndingScript : MonoBehaviour
     [SerializeField]
     private Animator animator;
     [SerializeField]
+    private Animator CameraAnimator;
+    [SerializeField]
+    private GameObject Kana;
+    [SerializeField]
     private ParticleSystem particle;
     [SerializeField]
     private MeshRenderer mesh;
@@ -19,7 +23,10 @@ public class EndingScript : MonoBehaviour
             mesh.enabled = false;
             particle.Play();
             animator.Play("Ending");
-            Invoke("LoadSence", 3);
+            CameraAnimator.gameObject.SetActive(true);
+            CameraAnimator.Play("CameraControl");
+            Invoke("LoadSence", 14.5f);
+            Kana.gameObject.SetActive(false);
             Debug.Log("玩家撞到結局");
         }
     }

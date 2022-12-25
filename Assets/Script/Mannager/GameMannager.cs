@@ -9,6 +9,7 @@ public class GameMannager : MonoBehaviour
     {
         gameMannager = GetComponent<GameMannager>();
         eventMannager = GetComponent<EventMannager>();
+        Cursor.visible = false;
     }
 
     public EventMannager eventMannager;
@@ -19,5 +20,4 @@ public class GameMannager : MonoBehaviour
     public FadeInOut fadeInOut;
     public RebirthManager rebirthManager;
     public PlayerMovement_Velocity movement;
-    
 }
