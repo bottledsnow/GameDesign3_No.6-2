@@ -10,6 +10,8 @@ public class EndingScript : MonoBehaviour
     [SerializeField]
     private Animator CameraAnimator;
     [SerializeField]
+    private GameObject UICanva;
+    [SerializeField]
     private GameObject Kana;
     [SerializeField]
     private ParticleSystem particle;
@@ -28,6 +30,7 @@ public class EndingScript : MonoBehaviour
             Invoke("LoadSence", 20);
             Kana.gameObject.SetActive(false);
             Debug.Log("玩家撞到結局");
+            UICanva.gameObject.SetActive(false);
         }
     }
 
