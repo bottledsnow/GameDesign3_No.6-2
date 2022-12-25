@@ -13,10 +13,15 @@ public class MenuMannager : MonoBehaviour
     private AnimatorStateInfo SettingInfo;
     private bool OpenCredit;
     private bool OpenSetting;
+    [SerializeField]
+    private bool InGame;
 
     private void Start()
     {
-        Cursor.visible = true;
+        if(!InGame)
+        {
+            Cursor.visible = true;
+        }
     }
     private void Update()
     {
