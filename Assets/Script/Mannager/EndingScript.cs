@@ -25,7 +25,7 @@ public class EndingScript : MonoBehaviour
             animator.Play("Ending");
             CameraAnimator.gameObject.SetActive(true);
             CameraAnimator.Play("CameraControl");
-            Invoke("LoadSence", 14.5f);
+            Invoke("LoadSence", 20);
             Kana.gameObject.SetActive(false);
             Debug.Log("玩家撞到結局");
         }
