@@ -13,7 +13,11 @@ public class MenuMannager : MonoBehaviour
     private AnimatorStateInfo SettingInfo;
     private bool OpenCredit;
     private bool OpenSetting;
-    
+
+    private void Start()
+    {
+        Cursor.visible = true;
+    }
     private void Update()
     {
         if(aniCredit!=null)
